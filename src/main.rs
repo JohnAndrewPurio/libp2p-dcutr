@@ -36,7 +36,6 @@ async fn main() -> Result<(), Box<dyn Error>> {
                 yamux::Config::default,
             )?
             .with_quic()
-            .with_dns()?
             .with_relay_client(noise::Config::new, yamux::Config::default)?
             .with_behaviour(|keypair, relay_behaviour| Behaviour {
                 relay_client: relay_behaviour,
