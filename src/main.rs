@@ -138,15 +138,17 @@ async fn main() -> Result<(), Box<dyn Error>> {
                     tracing::info!("Relay accepted our reservation request");
                 }
                 SwarmEvent::Behaviour(BehaviourEvent::RelayClient(event)) => {
-                    tracing::info!(?event)
+                    tracing::info!(?event, "Relay client")
                 }
                 SwarmEvent::Behaviour(BehaviourEvent::Dcutr(event)) => {
-                    tracing::info!(?event)
+                    tracing::info!(?event, "Dcutr")
                 }
                 SwarmEvent::Behaviour(BehaviourEvent::Identify(event)) => {
-                    tracing::info!(?event)
+                    tracing::info!(?event, "Identify")
                 }
-                SwarmEvent::Behaviour(BehaviourEvent::Ping(_)) => {}
+                SwarmEvent::Behaviour(BehaviourEvent::Ping(event)) => {
+                    tracing::info!(?event, "Ping")
+                }
                 SwarmEvent::ConnectionEstablished {
                     peer_id, endpoint, ..
                 } => {
