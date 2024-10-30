@@ -53,6 +53,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .listen_on("/ip4/0.0.0.0/udp/0/quic-v1".parse().unwrap())
         .unwrap();
 
+    swarm
+        .listen_on("/ip4/0.0.0.0/tcp/0".parse().unwrap())
+        .unwrap();
+
     block_on(async {
         let mut delay = futures_timer::Delay::new(Duration::from_secs(1)).fuse();
 
