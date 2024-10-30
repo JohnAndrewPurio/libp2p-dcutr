@@ -146,8 +146,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
                 SwarmEvent::Behaviour(BehaviourEvent::Identify(event)) => {
                     tracing::info!(?event, "Identify")
                 }
-                SwarmEvent::Behaviour(BehaviourEvent::Ping(event)) => {
-                    tracing::info!(?event, "Ping")
+                SwarmEvent::Behaviour(BehaviourEvent::Ping(_event)) => {
+                    // tracing::info!(?event, "Ping")
                 }
                 SwarmEvent::ConnectionEstablished {
                     peer_id, endpoint, ..
